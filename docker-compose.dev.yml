@@ -1,0 +1,20 @@
+
+services:
+  database:
+    container_name: db_postgres
+    image: postgres:15.2-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "pswd"
+      POSTGRES_DB: "test"
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./myPostgresql.conf:/var/lib/postgresql/data/postgresql.conf
+#      - ./log:/var/lib/postgresql/data/log
+
+
+
+
